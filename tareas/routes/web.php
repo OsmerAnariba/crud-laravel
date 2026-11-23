@@ -17,6 +17,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/tareas', [TareaController::class, 'store'])->name('tareas.store');
     Route::get('/tareas/{tarea}/editar', [TareaController::class, 'edit'])->name('tareas.edit');
     Route::put('/tareas/{tarea}', [TareaController::class, 'update'])->name('tareas.update');
+    Route::delete('/tareas/{tarea}', [TareaController::class, 'destroy'])->name('tareas.destroy');
 
     Route::post('/logout', [LoginController::class, 'cerrarSesion'])->name('logout');
 });

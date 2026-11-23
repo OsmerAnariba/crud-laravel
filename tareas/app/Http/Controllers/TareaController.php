@@ -79,4 +79,13 @@ class TareaController extends Controller
             ->route('tareas.index')
             ->with('exito', 'Tarea actualizada correctamente.');
     }
+
+    public function destroy(Tarea $tarea)
+    {
+        $tarea->delete();
+
+        return redirect()
+            ->route('tareas.index')
+            ->with('exito', 'Tarea eliminada correctamente.');
+    }
 }
