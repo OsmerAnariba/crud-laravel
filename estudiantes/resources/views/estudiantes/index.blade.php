@@ -2,6 +2,7 @@
 @section('titulo', 'Estudiantes')
 @section('contenido')
     <h1>Registro de estudiantes</h1>
+    <p><a href="{{ route('estudiantes.create') }}">Nuevo estudiante</a></p>
 
     <table border="1" cellpadding="6" cellspacing="0">
         <thead>
