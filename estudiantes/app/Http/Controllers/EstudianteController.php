@@ -41,6 +41,14 @@ class EstudianteController extends Controller
             ->with('success', 'Estudiante actualizado correctamente.');
     }
 
+        public function destroy(Estudiante $estudiante)
+    {
+        $estudiante->delete();
+
+        return redirect()->route('estudiantes.index')
+            ->with('success', 'Estudiante eliminado correctamente.');
+    }
+
     private function validar(Request $request, ?Estudiante $estudiante = null): array
     {
         return $request->validate([

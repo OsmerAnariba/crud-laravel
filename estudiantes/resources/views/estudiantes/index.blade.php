@@ -26,6 +26,13 @@
                     <td>{{ $estudiante->fecha_nacimiento->format('d/m/Y') }}</td>
                     <td>
                         <a href="{{ route('estudiantes.edit', $estudiante) }}">Editar</a>
+
+                        <form action="{{ route('estudiantes.destroy', $estudiante) }}" method="POST" style="display:inline"
+                              onsubmit="return confirm('¿Seguro que desea eliminar este estudiante?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">Eliminar</button>
+                        </form>
                     </td>
                 </tr>
             @empty
