@@ -28,6 +28,19 @@ class ProductoController extends Controller
             ->with('success', 'Producto creado correctamente.');
     }
 
+        public function edit(Producto $producto)
+    {
+        return view('productos.edit', compact('producto'));
+    }
+
+    public function update(Request $request, Producto $producto)
+    {
+        $producto->update($this->validar($request, $producto));
+
+        return redirect()->route('productos.index')
+            ->with('success', 'Producto actualizado correctamente.');
+    }
+
     private function validar(Request $request, ?Producto $producto = null): array
     {
         return $request->validate([

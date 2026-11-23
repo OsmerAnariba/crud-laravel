@@ -2,9 +2,8 @@
 @section('titulo', 'Productos')
 @section('contenido')
     <h1>Inventario de productos</h1>
-    <p>
-        <a href="{{ route('productos.create') }}">Registrar nuevo producto</a>
-    </p>
+
+    <p><a href="{{ route('productos.create') }}">Nuevo producto</a></p>
 
     <table border="1" cellpadding="6" cellspacing="0">
         <thead>
@@ -14,6 +13,7 @@
                 <th>Nombre</th>
                 <th>Precio</th>
                 <th>Existencias</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -30,10 +30,13 @@
                             {{ $producto->existencias }}
                         @endif
                     </td>
+                    <td>
+                        <a href="{{ route('productos.edit', $producto) }}">Editar</a>
+                    </td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="5">No hay productos registrados.</td>
+                    <td colspan="6">No hay productos registrados.</td>
                 </tr>
             @endforelse
         </tbody>
