@@ -41,6 +41,7 @@
                     <th>Responsable</th>
                     <th>Fecha límite</th>
                     <th>Estado</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,6 +53,7 @@
                         <td>{{ $tarea->responsable }}</td>
                         <td>{{ $tarea->fecha_limite->format('d/m/Y') }}</td>
                         <td>{{ ucfirst($tarea->estado) }}</td>
+                        <td><a href="{{ route('tareas.edit', $tarea) }}">Editar</a></td>
                     </tr>
                 @endforeach
             </tbody>
