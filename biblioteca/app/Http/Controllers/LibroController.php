@@ -41,6 +41,14 @@ class LibroController extends Controller
             ->with('success', 'Libro actualizado correctamente.');
     }
 
+    public function destroy(Libro $libro)
+    {
+        $libro->delete();
+
+        return redirect()->route('libros.index')
+            ->with('success', 'Libro eliminado correctamente.');
+    }
+
     private function validar(Request $request, ?Libro $libro = null): array
     {
         return $request->validate([

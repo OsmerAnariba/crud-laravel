@@ -18,5 +18,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/libros', [LibroController::class, 'store'])->name('libros.store');
     Route::get('/libros/{libro}/editar', [LibroController::class, 'edit'])->name('libros.edit');
     Route::put('/libros/{libro}', [LibroController::class, 'update'])->name('libros.update');
+    Route::delete('/libros/{libro}', [LibroController::class, 'destroy'])->name('libros.destroy');
 
 });
