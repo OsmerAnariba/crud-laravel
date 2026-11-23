@@ -28,6 +28,19 @@ class LibroController extends Controller
             ->with('success', 'Libro creado correctamente.');
     }
 
+        public function edit(Libro $libro)
+    {
+        return view('libros.edit', compact('libro'));
+    }
+
+    public function update(Request $request, Libro $libro)
+    {
+        $libro->update($this->validar($request, $libro));
+
+        return redirect()->route('libros.index')
+            ->with('success', 'Libro actualizado correctamente.');
+    }
+
     private function validar(Request $request, ?Libro $libro = null): array
     {
         return $request->validate([

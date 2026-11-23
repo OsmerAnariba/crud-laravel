@@ -16,5 +16,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/libros', [LibroController::class, 'index'])->name('libros.index');
     Route::get('/libros/create', [LibroController::class, 'create'])->name('libros.create');
     Route::post('/libros', [LibroController::class, 'store'])->name('libros.store');
+    Route::get('/libros/{libro}/editar', [LibroController::class, 'edit'])->name('libros.edit');
+    Route::put('/libros/{libro}', [LibroController::class, 'update'])->name('libros.update');
 
 });
