@@ -2,6 +2,7 @@
 @section('titulo', 'Estudiantes')
 @section('contenido')
     <h1>Registro de estudiantes</h1>
+
     <p><a href="{{ route('estudiantes.create') }}">Nuevo estudiante</a></p>
 
     <table border="1" cellpadding="6" cellspacing="0">
@@ -12,6 +13,7 @@
                 <th>Nombre</th>
                 <th>Correo</th>
                 <th>Fecha de nacimiento</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -22,10 +24,13 @@
                     <td>{{ $estudiante->nombre }}</td>
                     <td>{{ $estudiante->correo }}</td>
                     <td>{{ $estudiante->fecha_nacimiento->format('d/m/Y') }}</td>
+                    <td>
+                        <a href="{{ route('estudiantes.edit', $estudiante) }}">Editar</a>
+                    </td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="5">No hay estudiantes registrados.</td>
+                    <td colspan="6">No hay estudiantes registrados.</td>
                 </tr>
             @endforelse
         </tbody>
