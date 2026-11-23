@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LibroController;
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -11,4 +12,5 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/', fn () => view('inicio'))->name('inicio');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/libros', [LibroController::class, 'index'])->name('libros.index');
 });
