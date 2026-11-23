@@ -10,6 +10,7 @@
         table { border-collapse: collapse; width: 100%; margin-top: 16px; }
         th, td { border: 1px solid #000; padding: 6px 10px; text-align: left; }
         button { font-family: "Times New Roman", Times, serif; font-size: 16px; padding: 4px 12px; border: 1px solid #000; background: #fff; color: #000; cursor: pointer; }
+        .en-linea { display: inline; }
     </style>
 </head>
 <body>
@@ -53,7 +54,14 @@
                         <td>{{ ucfirst($mascota->especie) }}</td>
                         <td>{{ $mascota->propietario }}</td>
                         <td>{{ $mascota->fecha_nacimiento->format('d/m/Y') }}</td>
-                        <td><a href="{{ route('mascotas.edit', $mascota) }}">Editar</a></td>
+                        <td>
+                            <a href="{{ route('mascotas.edit', $mascota) }}">Editar</a>
+                            <form method="POST" action="{{ route('mascotas.destroy', $mascota) }}" class="en-linea" onsubmit="return confirm('¿Está seguro de que desea eliminar esta mascota?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">Eliminar</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
