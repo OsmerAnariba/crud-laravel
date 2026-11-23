@@ -12,5 +12,9 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/', fn () => view('inicio'))->name('inicio');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    
     Route::get('/libros', [LibroController::class, 'index'])->name('libros.index');
+    Route::get('/libros/create', [LibroController::class, 'create'])->name('libros.create');
+    Route::post('/libros', [LibroController::class, 'store'])->name('libros.store');
+
 });
