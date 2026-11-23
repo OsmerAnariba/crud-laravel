@@ -23,6 +23,12 @@
 
     <h2>Listado de tareas</h2>
 
+    @if (session('exito'))
+        <p>{{ session('exito') }}</p>
+    @endif
+
+    <p><a href="{{ route('tareas.create') }}">Nueva tarea</a></p>
+
     @if ($tareas->isEmpty())
         <p>No hay tareas registradas.</p>
     @else
