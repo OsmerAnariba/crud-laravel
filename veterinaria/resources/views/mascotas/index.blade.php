@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mascotas - Veterinaria</title>
     <style>
+        a { color: #000; }
         body { font-family: "Times New Roman", Times, serif; color: #000; background: #fff; margin: 40px; }
         table { border-collapse: collapse; width: 100%; margin-top: 16px; }
         th, td { border: 1px solid #000; padding: 6px 10px; text-align: left; }
@@ -21,6 +22,12 @@
     </form>
 
     <h2>Listado de mascotas</h2>
+
+    @if (session('exito'))
+    <p>{{ session('exito') }}</p>
+    @endif
+
+    <p><a href="{{ route('mascotas.create') }}">Nueva mascota</a></p>
 
     @if ($mascotas->isEmpty())
         <p>No hay mascotas registradas.</p>
