@@ -41,6 +41,14 @@ class ProductoController extends Controller
             ->with('success', 'Producto actualizado correctamente.');
     }
 
+        public function destroy(Producto $producto)
+    {
+        $producto->delete();
+
+        return redirect()->route('productos.index')
+            ->with('success', 'Producto eliminado correctamente.');
+    }
+
     private function validar(Request $request, ?Producto $producto = null): array
     {
         return $request->validate([
